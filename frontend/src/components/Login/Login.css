@@ -1,0 +1,46 @@
+.c-login__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.c-login__video {
+  width: 400px;
+  height: 800px;
+  object-fit: cover;
+}
+.c-login__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: left;
+  gap: 6rem;
+  padding: 5rem;
+  width: 100%;
+}
+.c-login__content-form-wrapper {
+  width: 25%;
+}
+.c-login__content-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.c-login__input {
+  padding: 0.5rem 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.c-login__eye {
+  cursor: pointer;
+}
+.c-login__forgot-password {
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: red;
+  }
+}

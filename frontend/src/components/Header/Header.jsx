@@ -17,7 +17,10 @@ export default function Header() {
           <li>Contacto</li>
         </ul>
       </nav>
-      <button>Pide tu cita</button>
+      <Link className="c-header__link" to="/login">
+        <button>Inicia sesión</button>
+      </Link>
+      {/* <button>Pide tu cita</button> */}
     </header>
   );
 }
