@@ -9,29 +9,29 @@
     height: auto;
   }
 }
-
 .c-header__link {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  font-family: "Inria Serif", sans-serif;
 }
-
 .c-header__name {
   font-size: 1.25rem;
   font-family: "Inria Serif", sans-serif;
   text-transform: uppercase;
   text-decoration: none;
+  letter-spacing: 0.6rem;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .c-header__subname {
   font-style: italic;
   text-transform: initial;
+  letter-spacing: normal;
 }
-
 .c-header__navbar {
   font-weight: 300;
   color: var(--white);

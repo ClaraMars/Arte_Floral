@@ -1,5 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,16 +17,19 @@
   -moz-osx-font-smoothing: grayscale;
 
   --gray: #333;
+  --light-gray: #929292;
+  --lighter-gray: #c3c3c3;
+  --lightest-gray: rgba(247, 247, 247, 0.45);
   --dark-green: #3b4533;
   --light-green: #abb2a0;
-  --dark-yellow: rgb(177, 158, 60);
-  --yellow: rgba(177, 158, 60, 0.8);
+  --darken-yellow: rgba(146, 128, 39, 0.8);
+  --dark-yellow: rgba(177, 158, 60, 0.8);
+  --yellow: rgba(177, 157, 60);
   --light-yellow: rgba(177, 158, 60, 0.35);
   --lighter-yellow: rgba(177, 158, 60, 0.08);
   --light-white: #fefefe;
   --white: #fff;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -32,47 +40,55 @@ body {
 h1 {
   font-size: 3.5rem;
   font-family: "Inria Serif", sans-serif;
+  margin: 2rem 0;
 }
 
 h2 {
   font-size: 2.5rem;
   font-family: "Inria Serif", sans-serif;
+  margin: 1.75rem 0;
 }
 
 h3 {
   font-size: 1.75rem;
   font-family: "Inria Serif", sans-serif;
+  margin: 1.5rem 0;
 }
 
 h4 {
   font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
 h5 {
   font-size: 1.25rem;
+  margin: 1rem 0;
 }
 
 h6 {
   font-size: 1rem;
+  margin: 1rem 0;
 }
 
 p {
   font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
 button {
   border-radius: 10rem;
   border: 1px solid transparent;
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   font-weight: 500;
   font-family: inherit;
+  font-size: 1.2rem;
   background-color: var(--yellow);
   color: var(--white);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s background-color 0.25s;
 }
 button:hover {
-  background-color: var(--dark-yellow);
+  background-color: var(--darken-yellow);
 }
 
 ul {
@@ -82,4 +98,21 @@ ul {
 img {
   width: 100%;
   height: auto;
+}
+
+input,
+textarea {
+  outline: none;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--lighter-gray);
+  border-radius: 3px;
+  background-color: var(--lightest-gray);
+  width: 100%;
+  font-family: inherit;
+}
+
+.o-container {
+  max-width: 1600px;
+  margin: 4rem auto;
+  padding: 0 5rem;
 }
