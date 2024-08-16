@@ -7,7 +7,7 @@ export default function Header() {
       <Link className="c-header__link" to="/">
         <img src="src/assets/images/medium_logo.webp" />
         <span className="c-header__name">
-          Estudio <span className="c-header__subname">Arte Floral</span>
+          Cisneros <span className="c-header__subname">Arte Floral</span>
         </span>
       </Link>
       <nav>
