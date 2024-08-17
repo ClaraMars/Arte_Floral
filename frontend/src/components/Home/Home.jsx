@@ -88,7 +88,7 @@ export default function Home() {
           <button className="o-btn">Consultar disponibilidad</button>
         </div>
       </section>
-      <section class="o-container">
+      <section className="o-container">
         <h2>Contacto</h2>
         <div className="c-home__contact-content">
           <div className="c-home__contact-data-wrapper">

@@ -1,0 +1,71 @@
+.o-container {
+  max-width: 1600px;
+  margin: 4rem auto;
+  padding: 0 5rem;
+}
+.o-btn,
+.c-header__link.o-btn {
+  border-radius: 10rem;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.75rem;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 1.2rem;
+  background-color: var(--yellow);
+  color: var(--white);
+  cursor: pointer;
+  transition: border-color 0.25s background-color 0.25s;
+  &:hover {
+    background-color: var(--darken-yellow);
+  }
+}
+.o-btn--secondary,
+.c-header__link.o-btn--secondary {
+  background-color: transparent;
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+  &:hover {
+    background-color: var(--lighter-yellow);
+  }
+}
+.o-btn--disabled {
+  background-color: var(--light-gray);
+  color: var(--gray);
+  cursor: not-allowed;
+}
+.o-input,
+.o-textarea {
+  outline: none;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--light-gray) !important;
+  border-radius: 3px;
+  background-color: var(--lightest-gray-2) !important;
+  width: 100%;
+  font-family: inherit;
+  &:hover {
+    border-color: var(--gray) !important;
+  }
+  &:active,
+  &:focus {
+    border-color: var(--gray) !important;
+    background-color: var(--lightest-gray) !important;
+  }
+}
+.o-input {
+  height: 3rem;
+}
+.o-input--password {
+  height: inherit;
+  width: 90%;
+}
+.o-align-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.o-fs-details {
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin: 0;
+}

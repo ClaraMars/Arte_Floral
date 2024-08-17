@@ -11,16 +11,6 @@
   font-weight: 400;
   font-size: 0.875rem;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* --gray: #333;
-  --light-gray: #929292;
-  --lighter-gray: #c3c3c3;
-  --lightest-gray: #f7f7f773; */
-
   --darker-gray: #333;
   --dark-gray: #808080;
   --gray: #929292;
@@ -37,6 +27,9 @@
   --yellow: rgba(177, 157, 60);
   --light-yellow: rgba(177, 158, 60, 0.35);
   --lighter-yellow: rgba(177, 158, 60, 0.08);
+
+  --dark-red: #6b2e2e;
+  --light-red: #eec3c0;
 
   --light-white: #fefefe;
   --white: #fff;
@@ -95,74 +88,14 @@ img {
   height: auto;
 }
 input[type="text"],
+input[type="email"],
 input[type="password"] {
   border: none;
   background-color: transparent;
   font-family: inherit;
   outline: none;
 }
-/* GENERIC CLASSES */
-.o-container {
-  max-width: 1600px;
-  margin: 4rem auto;
-  padding: 0 5rem;
-}
-.o-btn {
-  border-radius: 10rem;
-  border: 1px solid transparent;
-  padding: 0.75rem 1.75rem;
-  font-weight: 500;
-  font-family: inherit;
-  font-size: 1.2rem;
-  background-color: var(--yellow);
-  color: var(--white);
-  cursor: pointer;
-  transition: border-color 0.25s background-color 0.25s;
-  &:hover {
-    background-color: var(--darken-yellow);
-  }
-}
-.o-btn--secondary {
-  background-color: transparent;
-  color: var(--yellow);
-  border: 1px solid var(--yellow);
-  &:hover {
-    background-color: var(--lighter-yellow);
-  }
-}
-.o-input,
-.o-textarea {
-  outline: none;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--light-gray) !important;
-  border-radius: 3px;
-  background-color: var(--lightest-gray-2) !important;
-  width: 100%;
-  &:active,
-  &:hover,
-  &:focus {
-    border-color: var(--gray);
-  }
-  &:active,
-  &:focus {
-    background-color: var(--lightest-gray);
-  }
-}
-.o-input {
-  height: 3rem;
-}
-.o-input--password {
-  height: inherit;
-  width: 90%;
-}
-.o-align-center-space-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.o-fs-details {
-  font-weight: 300;
-  font-size: 0.875rem;
-  color: var(--gray);
-  margin: 0;
+button,
+a {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

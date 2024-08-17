@@ -46,3 +46,7 @@
   align-items: center;
   gap: 0.5rem;
 }
+.c-login__inputs-active {
+  border-color: var(--gray) !important;
+  background-color: var(--lightest-gray) !important;
+}
