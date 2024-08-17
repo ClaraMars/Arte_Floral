@@ -1,12 +1,11 @@
 .c-login__wrapper {
   display: flex;
-  align-items: center;
-  justify-content: left;
-}
-.c-login__video {
-  width: 400px;
-  height: 800px;
-  object-fit: cover;
+  min-height: 75vh;
+  background: linear-gradient(to right, white 0.5%, rgba(0, 0, 0, 0)),
+    url("../../assets/images/image372.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 450px;
 }
 .c-login__content {
   display: flex;
@@ -14,7 +13,6 @@
   align-items: flex-start;
   justify-content: left;
   gap: 6rem;
-  padding: 5rem;
   width: 100%;
 }
 .c-login__content-form-wrapper {
@@ -23,16 +21,15 @@
 .c-login__content-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-.c-login__input {
-  padding: 0.5rem 1rem;
-  border: 1px solid gray;
-  border-radius: 5px;
-  outline: none;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  height: 300px;
+  margin-top: 2rem;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100px;
+  }
 }
 .c-login__eye {
   cursor: pointer;
@@ -41,6 +38,11 @@
   cursor: pointer;
   text-decoration: underline;
   &:hover {
-    color: red;
+    color: var(--black);
   }
+}
+.c-login__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

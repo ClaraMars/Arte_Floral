@@ -16,17 +16,28 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --gray: #333;
+  /* --gray: #333;
   --light-gray: #929292;
   --lighter-gray: #c3c3c3;
-  --lightest-gray: rgba(247, 247, 247, 0.45);
+  --lightest-gray: #f7f7f773; */
+
+  --darker-gray: #333;
+  --dark-gray: #808080;
+  --gray: #929292;
+  --light-gray: #c3c3c3;
+  --lighter-gray: #e0e0e0;
+  --lightest-gray: #f0f0f0;
+  --lightest-gray-2: #fafafa;
+
   --dark-green: #3b4533;
   --light-green: #abb2a0;
+
   --darken-yellow: rgba(146, 128, 39, 0.8);
   --dark-yellow: rgba(177, 158, 60, 0.8);
   --yellow: rgba(177, 157, 60);
   --light-yellow: rgba(177, 158, 60, 0.35);
   --lighter-yellow: rgba(177, 158, 60, 0.08);
+
   --light-white: #fefefe;
   --white: #fff;
 }
@@ -75,7 +86,28 @@ p {
   margin-bottom: 2rem;
 }
 
-button {
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+input[type="text"],
+input[type="password"] {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  outline: none;
+}
+/* GENERIC CLASSES */
+.o-container {
+  max-width: 1600px;
+  margin: 4rem auto;
+  padding: 0 5rem;
+}
+.o-btn {
   border-radius: 10rem;
   border: 1px solid transparent;
   padding: 0.75rem 1.75rem;
@@ -86,33 +118,51 @@ button {
   color: var(--white);
   cursor: pointer;
   transition: border-color 0.25s background-color 0.25s;
+  &:hover {
+    background-color: var(--darken-yellow);
+  }
 }
-button:hover {
-  background-color: var(--darken-yellow);
+.o-btn--secondary {
+  background-color: transparent;
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+  &:hover {
+    background-color: var(--lighter-yellow);
+  }
 }
-
-ul {
-  list-style: none;
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
-input,
-textarea {
+.o-input,
+.o-textarea {
   outline: none;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--lighter-gray);
+  border: 1px solid var(--light-gray) !important;
   border-radius: 3px;
-  background-color: var(--lightest-gray);
+  background-color: var(--lightest-gray-2) !important;
   width: 100%;
-  font-family: inherit;
+  &:active,
+  &:hover,
+  &:focus {
+    border-color: var(--gray);
+  }
+  &:active,
+  &:focus {
+    background-color: var(--lightest-gray);
+  }
 }
-
-.o-container {
-  max-width: 1600px;
-  margin: 4rem auto;
-  padding: 0 5rem;
+.o-input {
+  height: 3rem;
+}
+.o-input--password {
+  height: inherit;
+  width: 90%;
+}
+.o-align-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.o-fs-details {
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin: 0;
 }

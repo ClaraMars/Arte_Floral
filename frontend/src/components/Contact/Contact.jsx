@@ -1,7 +1,7 @@
 export default function Contact(props) {
   return (
     <>
-      <div className="c-home__contact-data">
+      <div className={props.className}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -13,7 +13,7 @@ export default function Contact(props) {
         </svg>
         <span>638 45 96 89</span>
       </div>
-      <div className="c-home__contact-data">
+      <div className={props.className}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"

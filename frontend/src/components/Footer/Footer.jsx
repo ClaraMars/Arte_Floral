@@ -8,7 +8,10 @@ export default function Footer() {
         <div className="c-footer__content">
           <div className="c-footer__content-data">
             <img src="src/assets/images/footer_logo.png" alt="Logo" />
-            <Contact fill="#fff" />
+            <Contact
+              fill="#fff"
+              className="c-home__contact-data c-footer__contact"
+            />
           </div>
           <div className="c-footer__content-info-wrapper">
             <div className="c-footer__content-info">

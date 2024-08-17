@@ -39,7 +39,7 @@
     font-size: 1.1rem;
   }
   & span {
-    color: var(--gray);
+    color: var(--darker-gray);
     &:hover {
       font-weight: 400;
       cursor: pointer;

@@ -17,6 +17,12 @@
   align-items: flex-start;
   justify-content: start;
 }
+.c-footer__contact {
+  margin: 1rem 0 0.5rem;
+  & span {
+    color: var(--light-gray);
+  }
+}
 .c-footer__content-info-wrapper {
   width: 100%;
   display: flex;
@@ -33,7 +39,11 @@
   & li {
     margin: 0.5rem 0;
     font-weight: 300;
-    color: var(--light-gray);
+    color: var(--gray);
+    cursor: pointer;
+    &:hover {
+      color: var(--lighter-gray);
+    }
   }
 }
 .c-footer__content-rrss {
@@ -48,6 +58,7 @@
   padding: 0.5rem;
   border: 1px solid var(--darken-yellow);
   border-radius: 50%;
+  cursor: pointer;
   width: 4rem;
   height: 4rem;
   & img {
@@ -55,9 +66,13 @@
     height: 25px;
     object-fit: none;
   }
+  &:hover {
+    background-color: var(--darken-yellow);
+  }
 }
 .c-footer__rights {
-  border-top: 1px solid var(--lightest-gray);
+  margin-top: 1rem;
+  border-top: 1px solid var(--dark-gray);
   padding: 1.5rem 0 0.5rem;
   width: 100%;
   text-align: end;

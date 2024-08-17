@@ -85,7 +85,7 @@ export default function Home() {
             ¡Volverás a casa con un <strong>presupuesto personalizado</strong>{" "}
             el mismo día!
           </p>
-          <button>Consultar disponibilidad</button>
+          <button className="o-btn">Consultar disponibilidad</button>
         </div>
       </section>
       <section class="o-container">
@@ -123,22 +123,26 @@ export default function Home() {
                   09:30 a 13:00 y 17:00 a 20:00
                 </span>
               </div>
-              <Contact />
+              <Contact className="c-home__contact-data" />
             </div>
           </div>
           <div className="c-home__contact-form">
             <h4>Envíanos un mensaje</h4>
             <form>
               <div className="c-home__contact-form--data">
-                <input type="text" placeholder="Nombre" />
-                <input type="email" placeholder="Correo electrónico" />
+                <input className="o-input" type="text" placeholder="Nombre" />
+                <input
+                  className="o-input"
+                  type="email"
+                  placeholder="Correo electrónico"
+                />
               </div>
               <textarea
-                className="c-home__contact-form--message"
+                className="c-home__contact-form--message o-textarea"
                 rows="10"
                 placeholder="Mensaje (opcional)"
               />
-              <button className="c-home__contact-form--btn" type="submit">
+              <button className="c-home__contact-form--btn o-btn" type="submit">
                 Enviar
               </button>
             </form>
