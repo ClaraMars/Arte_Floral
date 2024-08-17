@@ -1,0 +1,35 @@
+.c-profile {
+  display: flex;
+  align-self: start;
+}
+.c-profile__title {
+  border-bottom: 1px solid var(--black);
+}
+.c-profile__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.1rem;
+  width: 20%;
+}
+.c-profile__aside-data {
+  width: fit-content;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.c-profile__aside-data--disconect {
+  cursor: pointer;
+  margin: 1rem 0;
+  color: var(--strong-red);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.c-profile__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+}

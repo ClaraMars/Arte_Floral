@@ -69,3 +69,7 @@
   color: var(--gray);
   margin: 0;
 }
+.o-not-found {
+  min-height: 22.8vh;
+  text-align: center;
+}

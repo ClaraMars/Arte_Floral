@@ -11,6 +11,7 @@
   font-weight: 400;
   font-size: 0.875rem;
 
+  --black: #000;
   --darker-gray: #333;
   --dark-gray: #808080;
   --gray: #929292;
@@ -29,6 +30,8 @@
   --lighter-yellow: rgba(177, 158, 60, 0.08);
 
   --dark-red: #6b2e2e;
+  --red: #a03d3d;
+  --strong-red: #d32f2f;
   --light-red: #eec3c0;
 
   --light-white: #fefefe;
@@ -98,4 +101,8 @@ input[type="password"] {
 button,
 a {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
