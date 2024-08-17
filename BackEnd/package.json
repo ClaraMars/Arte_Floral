@@ -8,7 +8,7 @@
     "dev": "nodemon --env-file .env app.js",
     "test": "test"
   },
-  "author": "ClaraMars & Cayetano97",
+  "author": "ClaraMars",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
