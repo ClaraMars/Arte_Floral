@@ -1,7 +1,8 @@
 import "./Modal.css";
 import { Alert, Spinner } from "../../../utils/Utils";
 
-const Modal = (props) => {
+export default function Modal(props) {
+  const appointment = props.appointment;
   return (
     <Modal
       className="c-modal"
@@ -36,7 +37,7 @@ const Modal = (props) => {
             type="text"
             name="name"
             placeholder="Nombre de la cita"
-            value={appointment.name}
+            value={props.appointmentName}
             onChange={props.handleChange}
             required
           />
@@ -44,7 +45,7 @@ const Modal = (props) => {
             className="o-input"
             type="date"
             name="date"
-            value={appointment.date}
+            value={props.appointmentDate}
             onChange={props.handleChange}
             required
           />
@@ -53,7 +54,7 @@ const Modal = (props) => {
             name="message"
             placeholder="Explique brevemente el motivo de la cita"
             rows={8}
-            value={appointment.message}
+            value={props.appointmentMessage}
             onChange={props.handleChange}
             required
           />
@@ -73,4 +74,4 @@ const Modal = (props) => {
       </form>
     </Modal>
   );
-};
+}

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { createAppointment } from "../../../fetch/appointmentFetch";
 // import { Alert, Spinner } from "../../../utils/Utils";
-import Modal from "../Modal/Modal";
+import ModalComponent from "../Modal/Modal";
 
 Modal.setAppElement("#root");
 
@@ -14,6 +14,7 @@ const CreateAppointmentModal = (props) => {
     date: "",
     message: "",
   });
+  // probar poniendo appointments en distintos useStates
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -52,7 +53,7 @@ const CreateAppointmentModal = (props) => {
   };
 
   return (
-    <Modal
+    <ModalComponent
       title="Solicitar una cita"
       text="Solicitar"
       error={error}
@@ -61,7 +62,9 @@ const CreateAppointmentModal = (props) => {
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       handleCancel={handleCancel}
-      appointment={appointment}
+      appointmentName={appointment.name}
+      appointmentDate={appointment.date}
+      appointmentMessage={appointment.message}
       isOpen={props.isOpen}
     />
     // <Modal
