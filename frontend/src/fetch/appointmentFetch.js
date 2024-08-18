@@ -11,6 +11,7 @@ const getAppointments = async (setIsLoading, id, token, refreshToken, setError) 
         })
         if (!response.ok) throw new Error();
         const data = await response.json();
+        console.log("APPOOINTMENT DATA", data);
         return data;
     } catch (error) {
         setError(true);
@@ -19,7 +20,7 @@ const getAppointments = async (setIsLoading, id, token, refreshToken, setError) 
     }
 }
 
-const createAppointment = async (setIsLoading, id, token, refreshToken, setError) => {
+const createAppointment = async (setIsLoading, id, token, refreshToken, appointmentData, setError) => {
     setIsLoading(true);
     try {
         const response = await fetch(`http://localhost:8000/newappointment/${id}`, {
@@ -29,9 +30,11 @@ const createAppointment = async (setIsLoading, id, token, refreshToken, setError
                 "auth-token": token,
                 "auth-refresh-token": refreshToken,
             },
+            body: JSON.stringify(appointmentData),
         })
         if (!response.ok) throw new Error();
         const data = await response.json();
+        console.log("APPOOINTMENT DATA", data);
         return data;
     } catch (error) {
         setError(true);

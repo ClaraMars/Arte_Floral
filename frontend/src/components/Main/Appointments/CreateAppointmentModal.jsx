@@ -1,26 +1,53 @@
 import "./CreateAppointmentModal.css";
 import React, { useState } from "react";
 import Modal from "react-modal";
+import { createAppointment } from "../../../fetch/appointmentFetch";
+import { Spinner } from "../../../utils/Utils";
 
 Modal.setAppElement("#root");
 
 const CreateAppointmentModal = (props) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  // const [openModal, setOpenModal] = useState(false);
   const [appointment, setAppointment] = useState({
     name: "",
     date: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAppointment((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    await createAppointment(
+      setIsLoading,
+      user._id,
+      user.token,
+      user.refreshToken,
+      appointment,
+      setError
+    );
     console.log(appointment);
     props.onRequestClose();
+    handleResetForm();
+  };
+
+  const handleCancel = () => {
+    props.onRequestClose();
+    handleResetForm();
+  };
+
+  const handleResetForm = () => {
+    setAppointment({
+      name: "",
+      date: "",
+      message: "",
+    });
   };
 
   return (
@@ -28,11 +55,11 @@ const CreateAppointmentModal = (props) => {
       className="c-modal"
       overlayClassName="c-modal-overlay"
       isOpen={props.isOpen}
-      onRequestClose={props.onRequestClose}
+      onRequestClose={handleCancel}
     >
       <svg
         className="c-modal__close"
-        onClick={props.onRequestClose}
+        onClick={handleCancel}
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
         viewBox="0 -960 960 960"
@@ -75,12 +102,12 @@ const CreateAppointmentModal = (props) => {
           <button
             className="o-btn o-btn--secondary"
             type="button"
-            onClick={props.onRequestClose}
+            onClick={handleCancel}
           >
-            Cancel
+            Cancelar
           </button>
           <button className="o-btn" type="submit">
-            Create
+            {isLoading ? <Spinner /> : "Solicitar"}
           </button>
         </div>
       </form>
