@@ -2,7 +2,7 @@
   display: flex;
   min-height: 75vh;
   background: linear-gradient(to right, white 0.5%, rgba(0, 0, 0, 0)),
-    url("../../assets/images/image372.png");
+    url("../../../assets/images/image372.png");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: 450px;

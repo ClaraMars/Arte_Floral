@@ -3,6 +3,9 @@
   margin: 4rem auto;
   padding: 0 5rem;
 }
+.c-main {
+  min-height: calc(100vh - 450px);
+}
 .o-btn,
 .c-header__link.o-btn {
   border-radius: 10rem;
@@ -25,7 +28,7 @@
   color: var(--yellow);
   border: 1px solid var(--yellow);
   &:hover {
-    background-color: var(--lighter-yellow);
+    background-color: var(--lightest-yellow);
   }
 }
 .o-btn--disabled {

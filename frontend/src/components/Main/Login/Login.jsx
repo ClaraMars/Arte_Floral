@@ -2,8 +2,8 @@ import "./Login.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Password_eye from "./Password_eye";
-import { LoginFetch, RegisterFetch } from "../../fetch/userFetch";
-import { Alert, Spinner } from "../../utils/utils";
+import { LoginFetch, RegisterFetch } from "../../../fetch/userFetch";
+import { Alert, Spinner } from "../../../utils/utils";
 
 export default function Login() {
   const navigate = useNavigate();

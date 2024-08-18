@@ -1,0 +1,28 @@
+.c-appointment__title {
+  border-bottom: 1px solid var(--yellow);
+}
+.c-appointment__content {
+  padding: 0 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--yellow);
+  background-color: var(--lighter-yellow);
+  border-radius: 3px;
+}
+.c-appointment__btn-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+.c-appointment__btn {
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+}
+.c-appointment__btn--edit {
+  background-color: var(--light-yellow);
+}
+.c-appointment__btn--delete {
+  background-color: var(--light-red);
+}

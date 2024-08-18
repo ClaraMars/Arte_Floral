@@ -95,7 +95,7 @@
     font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
-    background-color: var(--lighter-yellow);
+    background-color: var(--lightest-yellow);
     border: 1px solid var(--dark-yellow);
   }
 }

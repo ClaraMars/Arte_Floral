@@ -2,9 +2,6 @@
   display: flex;
   align-self: start;
 }
-.c-profile__title {
-  border-bottom: 1px solid var(--black);
-}
 .c-profile__aside {
   display: flex;
   flex-direction: column;
