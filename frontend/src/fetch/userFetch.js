@@ -24,7 +24,6 @@ const RegisterFetch = async (setIsLoading, emailValue, passwordValue, repeatedPa
         setError(true);
     } finally {
         setIsLoading(() => ({ ...setIsLoading, register: false }));
-
     }
 }
 

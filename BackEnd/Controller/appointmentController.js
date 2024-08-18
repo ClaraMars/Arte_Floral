@@ -1,67 +1,46 @@
 const express = require("express");
 const router = express.Router();
+const {isAuth} = require("../lib/utils");
 
 const Appointment = require("../Model/appointmentModel");
 const User = require("../Model/userModel");
 
 
-// Get all lists from a user
-router.get("/lists/:id_user", async (req, res) => {
+// Get all appointments from user
+router.get("/appointments/:id_user", isAuth, async (req, res) => {
     try {
         const id_user = req.params.id_user;
-        const data = await Lists.find({owner: id_user}).exec();
+        const data = id_user && await Appointment.find({user_id: id_user}).exec();
+        if(!id_user) throw new Error("No appointments found");
         res.status(200).json({
-        status: "Success",
+        status: 200,
         data: data,
-        error: null,
         });
     } catch (error) {
         res.status(404).json({
-        status: "Error",
-        data: null,
+        status: 404,
         error: error,
         });
     }
 });
 
-// Get one list from a user
-router.get("/lists/:id_user/:id_list", async (req, res) => {
-    try {
-        const id_user = req.params.id_user;
-        const id_list = req.params.id_list;
-        const data = await Lists.findOne({owner: id_user, _id: id_list}).exec();
-        res.status(200).json({
-        status: "Success",
-        data: data,
-        error: null,
-        });
-    } catch (error) {
-        res.status(404).json({
-        status: "Error",
-        data: null,
-        error: error,
-        });
-    }
-});
 
-// Create a list
-router.post("/newlist/:id_user", async (req, res) => {
+// Create an appointment
+router.post("/newappointment/:id_user", isAuth, async (req, res) => {
     try {
         const id_user = req.params.id_user;
-        const data = new Lists({
-            owner: id_user, 
-            list_name: req.body.list_name,
-            icon: req.body.icon,
-            id_collection: req.body.id_collection,
-            person_associated: req.body.person_associated,
-            shared: req.body.shared,
-            list_items: req.body.list_items,
+        console.log(id_user);
+        const data = new Appointment({
+            user_id: id_user,
+            appointment_name: req.body.appointment_name,
+            appointment_date: req.body.appointment_date,
+            appointment_message: req.body.appointment_message,
         });
         const datasaved = await data.save();
 
          // Actualizar el campo de listas del usuario con el ID de la lista nueva
         await User.findByIdAndUpdate(id_user, {
-            $push: { lists: datasaved._id },
+            $push: { appointment: datasaved._id },
       });
 
         res.status(200).json({

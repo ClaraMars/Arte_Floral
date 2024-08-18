@@ -1,12 +1,10 @@
 import "./Login.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Password_eye from "./Password_eye";
 import { LoginFetch, RegisterFetch } from "../../../fetch/userFetch";
 import { Alert, Spinner } from "../../../utils/utils";
 
 export default function Login() {
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState({ login: false, register: false });
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
@@ -37,7 +35,8 @@ export default function Login() {
     );
     if (!data || data.status !== 200) return;
     setData(data.data);
-    navigate("/");
+    localStorage.setItem("user", JSON.stringify(data.data));
+    window.location.href = "/";
   };
 
   const handleRegister = async (e) => {

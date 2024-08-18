@@ -1,5 +1,8 @@
 import "./Footer.css";
 import Contact from "../Main/Contact/Contact";
+import footerLogo from "../../assets/images/footer_logo.png";
+import fb from "../../assets/images/fb.png";
+import ig from "../../assets/images/ig.png";
 
 export default function Footer() {
   return (
@@ -7,7 +10,7 @@ export default function Footer() {
       <div className="o-container">
         <div className="c-footer__content">
           <div className="c-footer__content-data">
-            <img src="src/assets/images/footer_logo.png" alt="Logo" />
+            <img src={footerLogo} alt="Logo" />
             <Contact
               fill="#fff"
               className="c-home__contact-data c-footer__contact"
@@ -36,10 +39,10 @@ export default function Footer() {
               <h5>Síguenos</h5>
               <div className="c-footer__content-rrss">
                 <div className="c-footer__content-icon">
-                  <img src="src/assets/images/ig.png" alt="Instagram" />
+                  <img src={ig} alt="Instagram" />
                 </div>
                 <div className="c-footer__content-icon">
-                  <img src="src/assets/images/fb.png" alt="Facebook" />
+                  <img src={fb} alt="Facebook" />
                 </div>
               </div>
             </div>

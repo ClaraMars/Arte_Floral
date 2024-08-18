@@ -16,16 +16,16 @@ const userSchema = new Schema(
       cast: false,
       required: [true, "Password is required"],
     },
-    appointment: [
+    appointments: [
       {
         type: Schema.Types.ObjectId,
-        ref: "appointment",
+        ref: "appointments",
       },
     ],
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema, "user");
+const User = mongoose.model("User", userSchema, "users");
 
 module.exports = User;

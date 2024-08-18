@@ -1,11 +1,38 @@
 import "./Appointments.css";
+import { useState } from "react";
+import CreateAppointmentModal from "./CreateAppointmentModal";
 
 export default function Appointments() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userAppointments = user.appointments;
+  // console.log(userAppointments);
+  const [data, setData] = useState(userAppointments);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="">
       <h2 className="c-appointment__title">Mis citas</h2>
-      <button className="o-btn o-btn--secondary">Solicitar nueva cita</button>
+      <button
+        className="o-btn o-btn--secondary"
+        onClick={() => setIsModalOpen(true)}
+      >
+        Solicitar nueva cita
+      </button>
+      <CreateAppointmentModal
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseModal}
+        onBlur={handleCloseModal}
+      />
       <div>
+        {/* {data !== null || data !== undefined ? (
+          <p>Tienes {data.length} citas programadas</p>
+        ) : (
+          <p>No tienes citas programadas</p>
+        )} */}
         <div className="c-appointment__content">
           <div className="o-align-center-space-between">
             <h5>Boda Pepa</h5>
