@@ -2,7 +2,7 @@ import "./Login.css";
 import { useState, useEffect } from "react";
 import Password_eye from "./Password_eye";
 import { LoginFetch, RegisterFetch } from "../../../fetch/userFetch";
-import { Alert, Spinner } from "../../../utils/utils";
+import { Alert, Spinner } from "../../../utils/Utils";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState({ login: false, register: false });

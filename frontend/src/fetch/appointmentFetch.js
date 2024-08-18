@@ -11,7 +11,6 @@ const getAppointments = async (setIsLoading, id, token, refreshToken, setError) 
         })
         if (!response.ok) throw new Error();
         const data = await response.json();
-        console.log("APPOOINTMENT DATA", data);
         return data;
     } catch (error) {
         setError(true);
@@ -34,7 +33,6 @@ const createAppointment = async (setIsLoading, id, token, refreshToken, appointm
         })
         if (!response.ok) throw new Error();
         const data = await response.json();
-        console.log("APPOOINTMENT DATA", data);
         return data;
     } catch (error) {
         setError(true);
@@ -43,4 +41,47 @@ const createAppointment = async (setIsLoading, id, token, refreshToken, appointm
     }
 }
 
-export { getAppointments, createAppointment };
+const updateAppointment = async (setIsLoading, id, token, refreshToken, appointmentData, setError) => {
+    setIsLoading(true);
+    try {
+        const response = await fetch(`http://localhost:8000/updateappointment/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token,
+                "auth-refresh-token": refreshToken,
+            },
+            body: JSON.stringify(appointmentData),
+        })
+        if (!response.ok) throw new Error();
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        setError(true);
+    } finally {
+        setIsLoading(false);
+    }
+}
+
+const deleteAppointment = async (setIsLoading, id, token, refreshToken, setError) => {
+    setIsLoading(true);
+    try {
+        const response = await fetch(`http://localhost:8000/deleteappointment/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token,
+                "auth-refresh-token": refreshToken,
+            },
+        })
+        if (!response.ok) throw new Error();
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        setError(true);
+    } finally {
+        setIsLoading(false);
+    }
+}
+
+export { getAppointments, createAppointment, updateAppointment, deleteAppointment };
