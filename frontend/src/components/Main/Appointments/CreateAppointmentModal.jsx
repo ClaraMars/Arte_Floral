@@ -2,8 +2,7 @@ import "./CreateAppointmentModal.css";
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { createAppointment } from "../../../fetch/appointmentFetch";
-// import { Alert, Spinner } from "../../../utils/Utils";
-import ModalComponent from "../Modal/Modal";
+import { Alert, Spinner } from "../../../utils/Utils";
 
 Modal.setAppElement("#root");
 
@@ -14,7 +13,6 @@ const CreateAppointmentModal = (props) => {
     date: "",
     message: "",
   });
-  // probar poniendo appointments en distintos useStates
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -25,7 +23,7 @@ const CreateAppointmentModal = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createAppointment(
+    const data = await createAppointment(
       setIsLoading,
       user._id,
       user.token,
@@ -33,9 +31,10 @@ const CreateAppointmentModal = (props) => {
       appointment,
       setError
     );
-    console.log(appointment);
     props.onRequestClose();
     handleResetForm();
+    data && data.status === 200 && props.setSuccess(true);
+    props.setOperationType("creada");
     props.getAppointmentData();
   };
 
@@ -53,89 +52,75 @@ const CreateAppointmentModal = (props) => {
   };
 
   return (
-    <ModalComponent
-      title="Solicitar una cita"
-      text="Solicitar"
-      error={error}
-      setError={setError}
-      isLoading={isLoading}
-      handleChange={handleChange}
-      handleSubmit={handleSubmit}
-      handleCancel={handleCancel}
-      appointmentName={appointment.name}
-      appointmentDate={appointment.date}
-      appointmentMessage={appointment.message}
+    <Modal
+      className="c-modal"
+      overlayClassName="c-modal-overlay"
       isOpen={props.isOpen}
-    />
-    // <Modal
-    //   className="c-modal"
-    //   overlayClassName="c-modal-overlay"
-    //   isOpen={props.isOpen}
-    //   onRequestClose={handleCancel}
-    // >
-    //   <svg
-    //     className="c-modal__close"
-    //     onClick={handleCancel}
-    //     xmlns="http://www.w3.org/2000/svg"
-    //     height="24px"
-    //     viewBox="0 -960 960 960"
-    //     width="24px"
-    //     fill="#000"
-    //   >
-    //     <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-    //   </svg>
-    //   {error && (
-    //     <Alert
-    //       classes="o-alert--error"
-    //       message="No se ha podido crear la cita, inténtelo de nuevo más tarde."
-    //       isError={error}
-    //       setIsError={setError}
-    //     />
-    //   )}
-    //   <h2>Solicitar una cita</h2>
-    //   <form className="c-modal__form" onSubmit={handleSubmit}>
-    //     <div className="c-modal__form">
-    //       <input
-    //         className="o-input"
-    //         type="text"
-    //         name="name"
-    //         placeholder="Nombre de la cita"
-    //         value={appointment.name}
-    //         onChange={handleChange}
-    //         required
-    //       />
-    //       <input
-    //         className="o-input"
-    //         type="date"
-    //         name="date"
-    //         value={appointment.date}
-    //         onChange={handleChange}
-    //         required
-    //       />
-    //       <textarea
-    //         className="o-textarea"
-    //         name="message"
-    //         placeholder="Explique brevemente el motivo de la cita"
-    //         rows={8}
-    //         value={appointment.message}
-    //         onChange={handleChange}
-    //         required
-    //       />
-    //     </div>
-    //     <div className="c-modal__btn-wrapper">
-    //       <button
-    //         className="o-btn o-btn--secondary"
-    //         type="button"
-    //         onClick={handleCancel}
-    //       >
-    //         Cancelar
-    //       </button>
-    //       <button className="o-btn" type="submit">
-    //         {isLoading ? <Spinner /> : "Solicitar"}
-    //       </button>
-    //     </div>
-    //   </form>
-    // </Modal>
+      onRequestClose={handleCancel}
+    >
+      <svg
+        className="c-modal__close"
+        onClick={handleCancel}
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#000"
+      >
+        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+      </svg>
+      <h2>Solicitar una cita</h2>
+      {error && (
+        <Alert
+          classes="o-alert--error"
+          message="Ha ocurrido un error, inténtelo de nuevo."
+          isError={error}
+          setIsError={setError}
+        />
+      )}
+      <form className="c-modal__form" onSubmit={handleSubmit}>
+        <div className="c-modal__form">
+          <input
+            className="o-input"
+            type="text"
+            name="name"
+            placeholder="Nombre de la cita"
+            value={appointment.name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="o-input"
+            type="date"
+            name="date"
+            value={appointment.date}
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            className="o-textarea"
+            name="message"
+            placeholder="Explique brevemente el motivo de la cita"
+            rows={8}
+            value={appointment.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="c-modal__btn-wrapper">
+          <button
+            className="o-btn o-btn--secondary"
+            type="button"
+            onClick={handleCancel}
+          >
+            Cancelar
+          </button>
+          <button className="o-btn" type="submit">
+            {isLoading ? <Spinner /> : "Solicitar"}
+          </button>
+        </div>
+      </form>
+    </Modal>
   );
 };
 

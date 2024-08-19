@@ -40,7 +40,7 @@ export default function Header() {
         >
           {isLogged ? "Mi perfil" : "Iniciar sesión"}
         </Link>
-        <Link className="c-header__link o-btn" to="/login">
+        <Link className="c-header__link o-btn" to="/">
           Pide tu cita
         </Link>
       </div>

@@ -1,4 +1,4 @@
-/* .c-modal-overlay {
+.c-modal-overlay {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(2px);
   position: fixed;
@@ -36,4 +36,4 @@
   display: flex;
   margin: 1rem 0 0 auto;
   gap: 1rem;
-} */
+}

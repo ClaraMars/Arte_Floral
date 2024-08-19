@@ -36,8 +36,6 @@ router.post("/newappointment/:id_user", async (req, res) => {
             appointment_message: req.body.message,
         });
         const datasaved = await data.save();
-
-         // Actualizar el campo de listas del usuario con el ID de la lista nueva
         await User.findByIdAndUpdate(id_user, {
             $push: { appointments: datasaved._id },
       });
@@ -72,8 +70,7 @@ router.patch("/updateappointment/:id_appointment", async (req, res) => {
         error: error,
         });
     }
-}
-);
+});
 
 // Delete an appointment
 router.delete("/deleteappointment/:id_appointment", async (req, res) => {
