@@ -1,6 +1,7 @@
 import "./Profile.css";
 import { useState } from "react";
-import Appointments from "../Appointments/Appointments";
+import Appointments from "./Appointments/Appointments";
+import Data from "./Data/Data";
 
 export default function Profile() {
   const [asideData, setAsideData] = useState(true);
@@ -34,7 +35,7 @@ export default function Profile() {
         </span>
       </aside>
       <section className="c-profile__section">
-        {asideData ? <div>Data</div> : <Appointments />}
+        {asideData ? <Data /> : <Appointments />}
       </section>
     </div>
   );

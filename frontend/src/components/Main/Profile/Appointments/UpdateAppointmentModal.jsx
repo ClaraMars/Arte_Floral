@@ -1,8 +1,8 @@
 import "./CreateAppointmentModal.css";
 import { useState, useEffect } from "react";
 import Modal from "react-modal";
-import { updateAppointment } from "../../../fetch/appointmentFetch";
-import { Alert, Spinner, formatDateToYYYYMMDD } from "../../../utils/Utils";
+import { updateAppointment } from "@/fetch/appointmentFetch";
+import { Alert, Spinner, formatDateToYYYYMMDD } from "@/utils/Utils";
 
 Modal.setAppElement("#root");
 
@@ -99,6 +99,7 @@ export default function UpdateAppointmentModal(props) {
               className="o-input"
               type="date"
               name="date"
+              min={new Date().toISOString().split("T")[0]}
               value={appointmentData.date}
               onChange={handleChange}
               required

@@ -1,0 +1,12 @@
+.c-data__reset-password {
+  padding: 0 1rem 1rem;
+  border: 1px solid var(--yellow);
+}
+.c-data__form {
+  display: flex;
+  gap: 1rem;
+  & > div {
+    width: 75%;
+    gap: 1rem;
+  }
+}

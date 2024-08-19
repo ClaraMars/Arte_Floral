@@ -30,12 +30,14 @@ router.post("/login", async (req, res) => {
     const password = await bcrypt.compare(req.body.password, data.password);
     if (!password) {throw new Error()};
     const userId = data._id;
-    const token = generateToken(userId);
+    const token = generateToken(userId, false);
+    const refreshToken = generateToken(userId, true);
     res.status(200).json({
       status: 200,
       data: {
         _id: data._id,
         token: token,
+        refreshToken: refreshToken,
         email: data.email,
         appointments: data.appointments,
       },

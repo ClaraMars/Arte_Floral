@@ -19,7 +19,6 @@ const RegisterFetch = async (setIsLoading, emailValue, passwordValue, repeatedPa
         }
         const data = await response.json();
         return data;
-        //Funciondalidad para redirigir a la pagina de inicio pendiente
     } catch (error) {
         setError(true);
     } finally {

@@ -5,12 +5,11 @@
   padding: 0 1rem;
   margin: 1rem 0;
   border: 1px solid var(--yellow);
-  background-color: var(--lighter-yellow);
-  border-radius: 3px;
 }
 .c-appointment__btn-wrapper {
   display: flex;
   gap: 1rem;
+  margin-top: 1rem;
 }
 .c-appointment__btn {
   cursor: pointer;
@@ -25,4 +24,21 @@
 }
 .c-appointment__btn--delete {
   background-color: var(--light-red);
+}
+.c-appointment__name {
+  font-family: "Inria Serif", sans-serif;
+  width: 80%;
+}
+.c-appointment__message {
+  width: 80%;
+  margin-bottom: 1rem;
+}
+.c-appointment__selected-date {
+  padding: 1rem;
+  background-color: var(--lighter-yellow);
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+.c-appointment__edited {
+  margin-bottom: 0.5rem;
 }

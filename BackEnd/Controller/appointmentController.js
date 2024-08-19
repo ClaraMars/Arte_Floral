@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const {isAuth} = require("../lib/utils");
+const {verifyToken} = require("../lib/utils");
 
 const Appointment = require("../Model/appointmentModel");
 const User = require("../Model/userModel");
 
 
 // Get all appointments from user
-router.get("/appointments/:id_user", async (req, res) => {
+router.get("/appointments/:id_user", verifyToken, async (req, res) => {
     try {
         const id_user = req.params.id_user;
         const data = id_user && await Appointment.find({user_id: id_user}).sort({_id: -1}).exec();
@@ -26,7 +26,7 @@ router.get("/appointments/:id_user", async (req, res) => {
 
 
 // Create an appointment
-router.post("/newappointment/:id_user", async (req, res) => {
+router.post("/newappointment/:id_user", verifyToken, async (req, res) => {
     try {
         const id_user = req.params.id_user;
         const data = new Appointment({
@@ -52,7 +52,7 @@ router.post("/newappointment/:id_user", async (req, res) => {
 });
 
 // Update an appointment
-router.patch("/updateappointment/:id_appointment", async (req, res) => {
+router.patch("/updateappointment/:id_appointment", verifyToken, async (req, res) => {
     try {
         const id_appointment = req.params.id_appointment;
         const data = await Appointment.findByIdAndUpdate(id_appointment, {
@@ -73,7 +73,7 @@ router.patch("/updateappointment/:id_appointment", async (req, res) => {
 });
 
 // Delete an appointment
-router.delete("/deleteappointment/:id_appointment", async (req, res) => {
+router.delete("/deleteappointment/:id_appointment", verifyToken, async (req, res) => {
     try {
         const id_appointment = req.params.id_appointment;
         const data = await Appointment.findByIdAndDelete(id_appointment);

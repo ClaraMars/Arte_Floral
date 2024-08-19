@@ -2,11 +2,8 @@ import "./Appointments.css";
 import { useEffect, useState } from "react";
 import CreateAppointmentModal from "./CreateAppointmentModal";
 import UpdateAppointmentModal from "./UpdateAppointmentModal";
-import {
-  getAppointments,
-  deleteAppointment,
-} from "../../../fetch/appointmentFetch";
-import { Alert, Spinner, formatDate } from "../../../utils/Utils";
+import { getAppointments, deleteAppointment } from "@/fetch/appointmentFetch";
+import { Alert, Spinner, formatDate } from "@/utils/Utils";
 
 export default function Appointments() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,6 +29,7 @@ export default function Appointments() {
       setError
     );
     setData(data.data);
+    console.log(data.data);
   };
 
   const handleEditAppointment = (index) => {
@@ -59,7 +57,7 @@ export default function Appointments() {
   }, []);
 
   return (
-    <div className="">
+    <div>
       <h2 className="c-appointment__title">Mis citas</h2>
       <div className="o-align-center-space-between">
         {data !== null && data !== undefined && data.length !== 0 ? (
@@ -126,7 +124,9 @@ export default function Appointments() {
                   key={appointment._id || index}
                 >
                   <div className="o-align-center-space-between">
-                    <h5>{appointment.appointment_name}</h5>
+                    <h5 className="c-appointment__name">
+                      {appointment.appointment_name}
+                    </h5>
                     <div className="c-appointment__btn-wrapper">
                       <button
                         className="c-appointment__btn c-appointment__btn--edit"
@@ -160,9 +160,16 @@ export default function Appointments() {
                       </button>
                     </div>
                   </div>
-                  <p>{appointment.appointment_message}</p>
-                  <p>
-                    Fecha seleccionada:{" "}
+                  <p className="c-appointment__message">
+                    {appointment.appointment_message}
+                  </p>
+                  {appointment.createdAt !== appointment.updatedAt && (
+                    <p className="o-fs-details c-appointment__edited">
+                      Fecha actualizada el {formatDate(appointment.updatedAt)}
+                    </p>
+                  )}
+                  <p className="c-appointment__selected-date">
+                    <strong>Fecha seleccionada:</strong>{" "}
                     {formatDate(appointment.appointment_date)}
                   </p>
                 </li>
