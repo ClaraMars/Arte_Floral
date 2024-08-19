@@ -1,6 +1,9 @@
 .c-data__reset-password {
   padding: 0 1rem 1rem;
   border: 1px solid var(--yellow);
+  & h5 {
+    font-family: "Inria Serif", sans-serif;
+  }
 }
 .c-data__form {
   display: flex;

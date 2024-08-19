@@ -91,7 +91,7 @@ export default function UpdateAppointmentModal(props) {
               type="text"
               name="name"
               placeholder="Nombre de la cita"
-              value={appointmentData.name}
+              value={appointmentData.name ? appointmentData.name : ""}
               onChange={handleChange}
               required
             />
@@ -100,7 +100,7 @@ export default function UpdateAppointmentModal(props) {
               type="date"
               name="date"
               min={new Date().toISOString().split("T")[0]}
-              value={appointmentData.date}
+              value={appointmentData.date ? appointmentData.date : ""}
               onChange={handleChange}
               required
             />
@@ -109,7 +109,7 @@ export default function UpdateAppointmentModal(props) {
               name="message"
               placeholder="Explique brevemente el motivo de la cita"
               rows={8}
-              value={appointmentData.message}
+              value={appointmentData.message ? appointmentData.message : ""}
               onChange={handleChange}
               required
             />

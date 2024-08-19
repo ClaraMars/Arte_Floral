@@ -7,6 +7,8 @@ export default function Home() {
     "src/assets/images/image12.png",
     "src/assets/images/image17.png",
     "src/assets/images/image14.png",
+    "src/assets/images/image5.jpg",
+    "src/assets/images/image4.jpg",
   ];
 
   return (

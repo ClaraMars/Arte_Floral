@@ -1,28 +1,29 @@
 .c-carrusel__content {
+  margin: 3rem 0;
+}
+.slick-slider {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 4rem 0;
+  gap: 1rem;
+}
+.slick-list {
+  width: 85%;
+  margin: 0 auto;
 }
 .c-carrusel__images-wrapper {
-  width: 90%;
+  width: 350px !important;
   height: 425px;
+  display: flex !important;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 1rem;
-  & div {
-    width: 350px;
-    height: 100%;
-    & img {
-      width: 100%;
-      height: inherit;
-      object-fit: cover;
-    }
-  }
+}
+.c-carrusel__img {
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
 }
 .c-carrusel__chevron {
+  width: 40px;
   background-color: var(--lightest-gray);
   border-radius: 50%;
   padding: 0.5rem;

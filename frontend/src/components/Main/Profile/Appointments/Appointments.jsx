@@ -29,7 +29,6 @@ export default function Appointments() {
       setError
     );
     setData(data.data);
-    console.log(data.data);
   };
 
   const handleEditAppointment = (index) => {
